@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/stylesheets/strength.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <title>Signup</title>
+</head>
+<body class="form-page">
+  <div id="form-container">
+    <form action="/signup" method="POST">
+      <h2>Signup</h2>
+
+      <label for="username">Username</label><br>
+      <input class="txt" type="text" name="username" placeholder="AnakinSkywalker" required><br><br>
+
+      <label for="password">Password</label><br>
+      <input id="password" class="txt" type="password" name="password" placeholder="DeathStar" required><br><br>
+
+      <% if (typeof(errorMessage) !== "undefined") { %>
+        <div class="error-message"><%= errorMessage %></div>
+      <% } %>
+
+      <button class="btn">Create account</button>
+
+      <p>
+        Already have an account? <a href="/login">Login</a>
+      </p>
+    </form>
+  </div>
+
+  <script src="/javascript/strength-password/strength.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("#password").strength();
+    });
+  </script>
+</body>
+</html>
